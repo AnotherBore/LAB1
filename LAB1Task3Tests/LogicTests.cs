@@ -13,7 +13,7 @@ namespace LAB1Task3.Tests
         public void AllIsLetters()
         {
             string input = "ahdshasjhdajnscxn";
-            int dol = Logic.ProppercentageOfLetters(input);
+            int dol = Logic.ProportionOfLetters(input);
             Assert.AreEqual(100, dol);
         }
         
@@ -21,7 +21,7 @@ namespace LAB1Task3.Tests
         public void TwentyPercent()
         {
             string input = "ah  9341 .";
-            int dol = Logic.ProppercentageOfLetters(input);
+            int dol = Logic.ProportionOfLetters(input);
             Assert.AreEqual(20, dol);
         }
 
@@ -29,7 +29,7 @@ namespace LAB1Task3.Tests
         public void NoLetters()
         {
             string input = "123612893182   ,.,";
-            int dol = Logic.ProppercentageOfLetters(input);
+            int dol = Logic.ProportionOfLetters(input);
             Assert.AreEqual(0, dol);
         }
     }

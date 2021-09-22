@@ -4,10 +4,13 @@ namespace LAB1Task2
 {
     public class Logic
     {
-        public static int CuttingSquares(int a, int b)
+        public static UInt16 CuttingSquares(UInt16 a, UInt16 b)
         {
             UInt16 count = 1;
-            if (a == b) Console.WriteLine("1. {0} x {1}", a, a);
+            if (a == b)
+            {
+                return count;
+            }
             while (a != b)
             {
                 if (a < b)
@@ -26,7 +29,7 @@ namespace LAB1Task2
         }
         class Program
         {
-            public static int InputWithChecks(string str, int j)
+            public static UInt16 InputWithChecks(string str, UInt16 j)
             {
                 int a = 0;
                 Console.WriteLine("Введите {0} (минимальное число - {1})", str, j);
@@ -46,15 +49,21 @@ namespace LAB1Task2
                     }
                     else allOK = true;
                 }
-                return a;
+                return (UInt16)a;
             }
 
             static void Main(string[] args)
             {
-                int a = InputWithChecks("первую сторону прямоугольника", 1);
-                int b = InputWithChecks("вторую сторону прямоугольника", 1);
-                Console.WriteLine("Прямоугольник будет разрезан на {0} квадратов."
-                    , Logic.CuttingSquares(a, b));
+                UInt16 a = InputWithChecks("первую сторону прямоугольника", 1);
+                UInt16 b = InputWithChecks("вторую сторону прямоугольника", 1);
+                UInt16 count = Logic.CuttingSquares(a, b);
+                if (count == 1) Console.WriteLine("Это квадрат");
+                else if ((count < 10 || count > 20) && 
+                    ((count % 10 > 1) && (count % 10 < 5)))
+                {
+                    Console.WriteLine("Прямоугольник будет разрезан {0} раза.", count);
+                }
+                else Console.WriteLine("Прямоугольник будет разрезан {0} раз.", count);
                 Console.ReadLine();
             }
 

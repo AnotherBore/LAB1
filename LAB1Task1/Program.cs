@@ -36,9 +36,10 @@ namespace LAB1Task1
             int a = 0;
             Console.WriteLine("Введите трехзначное число");
             bool allOK = false;
+            bool log;
             while (!allOK)
             {
-                bool log = int.TryParse(Console.ReadLine(), out a);
+                log = int.TryParse(Console.ReadLine(), out a);
                 if (!log)
                 {
                     Console.WriteLine("Вы ввели строку");
@@ -47,7 +48,7 @@ namespace LAB1Task1
                 log = Logic.IsDigit(a, 3);
                 if (!log)
                 {
-                    Console.WriteLine("Данное число не является трехзначным");
+                    Console.WriteLine("Данное число не подходит к требованиям");
                     continue;
                 }
                 else allOK = true;

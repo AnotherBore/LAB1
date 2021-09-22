@@ -4,15 +4,16 @@ namespace LAB1Task3
 {
     public class Logic
     {
-        public static int ProppercentageOfLetters(string str)
+        public static int ProportionOfLetters(string str)
         {
             UInt16 q = 0;
+            UInt16 dol = 0;
             for (int i = 0; i < str.Length; i++)
             {
                 if (char.IsLetter(str[i]))
                     q++;
             }
-            int dol = q * 100 / str.Length;
+            dol = Convert.ToUInt16(q * 100 / str.Length);
             return dol;
         }
     }
@@ -22,9 +23,8 @@ namespace LAB1Task3
         {
             Console.WriteLine("Введите строку");
             string input = Console.ReadLine();
-            Logic.ProppercentageOfLetters(input);
             Console.WriteLine("Доля букв в строке - {0}%",
-                Logic.ProppercentageOfLetters(input));
+                Logic.ProportionOfLetters(input));
 
         }
     }
