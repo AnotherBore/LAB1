@@ -12,17 +12,17 @@ namespace LAB1Task2.Tests
         [TestMethod()]
         public void RealSquare()
         {
-            int a = 10;
-            int b = 10;
-            int count = Logic.CuttingSquares(a, b);
+            UInt16 a = 10;
+            UInt16 b = 10;
+            UInt16 count = Logic.CuttingSquares(a, b);
             Assert.AreEqual(1, count);
         }
         [TestMethod()]
         public void DefaultRectangle()
         {
-            int a = 10;
-            int b = 7;
-            int count = Logic.CuttingSquares(a, b);
+            UInt16 a = 10;
+            UInt16 b = 7;
+            UInt16 count = Logic.CuttingSquares(a, b);
             Assert.AreEqual(6, count);
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LAB1Task2
 {
@@ -6,6 +7,7 @@ namespace LAB1Task2
     {
         public static UInt16 CuttingSquares(UInt16 a, UInt16 b)
         {
+            string squares = "";
             UInt16 count = 1;
             if (a == b)
             {
@@ -15,16 +17,19 @@ namespace LAB1Task2
             {
                 if (a < b)
                 {
-                    b -= a; Console.WriteLine("{0}. {1} x {2}", count, a, a);
+                    b -= a;
+                    squares = squares + $"{count}. {a} x {a}" + "\n";
                 }
                 else
                 {
-                    a -= b; Console.WriteLine("{0}. {1} x {2}", count, b, b);
+                    a -= b;
+                    squares = squares + $"{count}. {b} x {b}" + "\n";
                 }
 
                 count++;
             }
-            Console.WriteLine("{0}. {1} x {2}", count, a, a);
+            squares = squares + $"{count}. {a} x {a}" + "\n";
+            Console.WriteLine(squares);
             return count;
         }
         class Program

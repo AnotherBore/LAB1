@@ -21,10 +21,15 @@ namespace LAB1Task3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите строку");
-            string input = Console.ReadLine();
+            string input;
+            do
+            {
+                Console.WriteLine("Введите строку");
+                input = Console.ReadLine();
+            } while (input.Length < 1);
             Console.WriteLine("Доля букв в строке - {0}%",
                 Logic.ProportionOfLetters(input));
+
 
         }
     }
