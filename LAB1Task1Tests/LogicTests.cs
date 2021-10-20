@@ -24,7 +24,7 @@ namespace LAB1Task1.Tests
         [TestMethod()]
         public void IsMax()
         {
-            int max = Logic.MaxNum(2147128);
+            UInt16 max = Logic.MaxNum(21471);
             Assert.AreEqual(8, max);
         }
     }

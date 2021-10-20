@@ -17,16 +17,26 @@ namespace LAB1Task1
         }
         public static UInt16 MaxNum(UInt16 a)
         {
+            UInt16 current = 0;
+            UInt16 i;
             UInt16 max = 0; // заводим переменную под максимальную цифру
-            UInt16 current;
-            while (a > 0) //пока не кончилось число
+            UInt16[] array = new UInt16[3];
+            for(i = 0; i < 3; i++)
             {
-                current = (ushort)(a % 10);
-                if (max < current) //если есть цифра больше
-                {
-                    max = current; 
-                }
+                array[i] = (ushort)(a % 10);
                 a = (ushort)(a / 10); //сокращаем число на одну цифру
+            }
+            for(i = 0; i < 2; i++)
+            {
+                if (array[i] == array[i + 1]) continue;
+                else current = 1;
+            }
+            if(current == 1)
+            {
+                foreach(UInt16 k in array)
+                {
+                    if (max < k) max = k;
+                }           
             }
             return max;
         }
@@ -60,7 +70,15 @@ namespace LAB1Task1
         public static void Main(string[] args)
         {
             UInt16 number = InputWithChecks();//вводим переменную через консоль
-            Console.WriteLine("Максимальная цифра в числе - {0}", Logic.MaxNum(number));//выводим максимальную цифру
+            UInt16 max = Logic.MaxNum(number);
+            if(max > 0)
+            {
+                Console.WriteLine("Максимальная цифра в числе - {0}", Logic.MaxNum(number));//выводим максимальную цифру
+            }
+            else
+            {
+                Console.WriteLine("Число имеет одинаковые цифры");
+            }
             Console.ReadLine();
         }
     }
