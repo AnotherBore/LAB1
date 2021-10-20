@@ -1,36 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-
 namespace LAB1Task2
 {
     public class Logic
     {
+        public static string squares = ""; //заводим строку для вывода отсеченных квадратов
         public static UInt16 CuttingSquares(UInt16 a, UInt16 b)
-        {
-            string squares = "";
-            UInt16 count = 1;
-            if (a == b)
+        {          
+            UInt16 count = 1; // для подсчета количества отсечений
+            if (a == b) //если уже квадрат
             {
                 return count;
             }
-            while (a != b)
+            while (a != b) // пока не разрезалось в последний раз
             {
-                if (a < b)
+                if (a < b) //проверяем какая сторона больше
                 {
-                    b -= a;
-                    squares = squares + $"{count}. {a} x {a}" + "\n";
+                    b -= a; //отсекаем по большей стороне
+                    squares = squares + $"{count}. {a} x {a}" + "\n";//в строку вписываем кавадрат и переносим строку
                 }
                 else
                 {
-                    a -= b;
+                    a -= b; 
                     squares = squares + $"{count}. {b} x {b}" + "\n";
                 }
 
                 count++;
             }
-            squares = squares + $"{count}. {a} x {a}" + "\n";
-            Console.WriteLine(squares);
-            return count;
+            squares = squares + $"{count}. {a} x {a}" + "\n"; //выводим последний квадрат
+            return count; //возвращаем количество отрезаний
         }
         class Program
         {
@@ -63,12 +60,17 @@ namespace LAB1Task2
                 UInt16 b = InputWithChecks("вторую сторону прямоугольника", 1);
                 UInt16 count = Logic.CuttingSquares(a, b);
                 if (count == 1) Console.WriteLine("Это квадрат");
-                else if ((count < 10 || count > 20) && 
+                else if ((count < 10 || count > 20) &&
                     ((count % 10 > 1) && (count % 10 < 5)))
                 {
                     Console.WriteLine("Прямоугольник будет разрезан {0} раза.", count);
+                    Console.WriteLine(Logic.squares); // выводим историю обрезаний
                 }
-                else Console.WriteLine("Прямоугольник будет разрезан {0} раз.", count);
+                else
+                {
+                    Console.WriteLine("Прямоугольник будет разрезан {0} раз.", count);
+                    Console.WriteLine(Logic.squares);
+                }
                 Console.ReadLine();
             }
 
