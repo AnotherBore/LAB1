@@ -21,27 +21,27 @@ namespace LAB1Task1
             UInt16 i;
             UInt16 max = 0; // заводим переменную под максимальную цифру
             UInt16[] array = new UInt16[3];
-            for(i = 0; i < 3; i++)
+            for (i = 0; i < 3; i++)
             {
                 array[i] = (ushort)(a % 10);
                 a = (ushort)(a / 10); //сокращаем число на одну цифру
             }
-            for(i = 0; i < 2; i++)
+            for (i = 0; i < 2; i++)
             {
                 if (array[i] == array[i + 1]) continue;
                 else current = 1;
             }
-            if(current == 1)
+            if (current == 1)
             {
-                foreach(UInt16 k in array)
+                foreach (UInt16 k in array)
                 {
                     if (max < k) max = k;
-                }           
+                }
             }
             return max;
         }
     }
-    class Program
+class Program
     {
         public static UInt16 InputWithChecks()
         {
